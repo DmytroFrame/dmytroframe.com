@@ -6,48 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/style.scss" />
     <link rel="stylesheet" href="src/link-style.scss" />
-    <title>DmytroFrame</title>
+    <title>DmytroFrame.site</title>
   </head>
   <body>
     <div class="container">
       <h1>Nobody's glad to see you here...</h1>
       <br />
-      <a class="first after" href="https://host.dmytroframe.site/"
-        >DmytroHost</a
-      >
-      <br />
-      <a class="first after" href="https://router.dmytroframe.site/">Router</a>
-      <br />
-      <a class="first after" href="https://github.com/DmytroFrame">GitHub</a>
+      <div class="links">
+        <a class="first after" href="https://host.dmytroframe.site/"
+          >DmytroHost</a
+        >
+        <a class="first after" href="https://router.dmytroframe.site/"
+          >Router</a
+        >
+        <a class="first after" href="https://github.com/DmytroFrame">GitHub</a>
+      </div>
     </div>
 
     <script>
       const titleText = document.querySelector("body > div > h1");
+      const lang = navigator.language;
 
-      switch (navigator.language) {
-        case "uk-UA":
-          titleText.innerText = "Тобі тут не раді...";
-          break;
-        case "uk":
-          titleText.innerText = "Тобі тут не раді...";
-          break;
+      if (lang == "uk" || lang == "uk-UA")
+        titleText.innerText = "Ніхто не радий тебе тут бачити...";
 
-        case "ru-RU":
-          titleText.innerText = "русня ".repeat(10000).toUpperCase();
-          break;
-        case "ru":
-          titleText.innerText = "русня ".repeat(10000).toUpperCase();
-          break;
+      if (lang == "ru" || lang == "ru-RU")
+        titleText.innerText = "русня ".repeat(10000).toUpperCase();
 
-        case "ru-UA":
-          titleText.innerText = "малоросс ".repeat(10000).toUpperCase();
-          break;
-      }
+      if (lang == "ru-UA")
+        titleText.innerText = "малоросс ".repeat(10000).toUpperCase();
 
       setInterval(() => {
         const randomColor = Math.floor(Math.random() * 16777215).toString(16);
         document.body.style.backgroundColor = "#" + randomColor;
-      }, 1000);
+      }, 2000);
     </script>
   </body>
 </html>
